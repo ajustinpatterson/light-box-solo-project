@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Nav from './components/Nav';
+import Nav from './Nav';
 
-const Explore = () => {
+const List = () => {
   return (
     <View>
-      <Text>Curated feed photos🏞<🌉🌆</Text>
+      <Text style={{ color: 'white' }}>Curated feed photos</Text>
       <Nav />
     </View>
   );
@@ -13,4 +13,4 @@ const Explore = () => {
 
 const styles = StyleSheet.create({});
 
-export default Explore;
+export default List;

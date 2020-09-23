@@ -1,13 +1,12 @@
 import React from 'react';
 import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
-import Explore from './components/Explore';
+import List from './components/List';
+
+//if no user, create. if logged out, show login. else:
 
 const App = () => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View style={[styles.gray, styles.container]}>
-        <Text style={{ color: 'lightgray' }}>I have birthed!</Text>
-      </View>
+    <SafeAreaView style={styles.container}>
       <List />
     </SafeAreaView>
   );

@@ -1,14 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
 
-const Explore = () => {
+const Login = () => {
   return (
     <View>
       <Text>Login here</Text>
       <form>
-        <input type="text" placeholder="username" />
-        <input type="text" placeholder="password" />
-        <button>Login</button>]
+        <TextInput placeholder="username" />
+        <TextInput placeholder="password" />
+        <Button title="Login!" />
       </form>
     </View>
   );
@@ -16,4 +16,4 @@ const Explore = () => {
 
 const styles = StyleSheet.create({});
 
-export default Explore;
+export default Login;

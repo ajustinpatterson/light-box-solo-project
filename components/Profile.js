@@ -1,12 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import Nav from './components/Nav';
+import { View, Text, StyleSheet, Image } from 'react-native';
+import Nav from './Nav';
 
-const Explore = () => {
+const Profile = () => {
   return (
     <View>
       <Text>Who I am</Text>
-      <img src="https://www.snappycanvas.com/3200-thickbox_default/admiral-pet-painting-from-photograph.jpg"></img>
+      <Image
+        source={require('https://www.snappycanvas.com/3200-thickbox_default/admiral-pet-painting-from-photograph.jpg')}
+      />
       <Text>Informations!</Text>
       <Nav />
     </View>
@@ -15,4 +17,4 @@ const Explore = () => {
 
 const styles = StyleSheet.create({});
 
-export default Explore;
+export default Profile;

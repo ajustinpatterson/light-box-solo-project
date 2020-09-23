@@ -1,15 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
 
-const Explore = () => {
+const Register = () => {
   return (
     <View>
       <Text>Birth a new user</Text>
       <form>
-        <input type="text" placeholder="email" />
-        <input type="text" placeholder="username" />
-        <input type="text" placeholder="password" />
-        <button>Register!</button>
+        <TextInput placeholder="email" />
+        <TextInput placeholder="username" />
+        <TextInput placeholder="password" />
+        <Button title="Register!" />
       </form>
     </View>
   );
@@ -17,4 +17,4 @@ const Explore = () => {
 
 const styles = StyleSheet.create({});
 
-export default Explore;
+export default Register;

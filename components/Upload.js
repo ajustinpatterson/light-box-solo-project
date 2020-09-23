@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import Nav from './components/Nav';
+import { View, Text, StyleSheet, Button } from 'react-native';
+import Nav from './Nav';
 
-const Explore = () => {
+const Upload = () => {
   return (
     <View>
       <Text>upload photo</Text>
-      <button>upload here</button>
+      <Button title="Upload!" />
       <Nav />
     </View>
   );
@@ -14,4 +14,4 @@ const Explore = () => {
 
 const styles = StyleSheet.create({});
 
-export default Explore;
+export default Upload;

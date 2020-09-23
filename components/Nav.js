@@ -1,18 +1,18 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 
-const Explore = () => {
+const Nav = () => {
   return (
     <View>
-      <button>Feed</button>
-      <button>Explore</button>
-      <button>Upload</button>
-      <button>Curate</button>
-      <button>Profile</button>
+      <Button title="Feed" />
+      <Button title="Explore" />
+      <Button title="Upload" />
+      <Button title="Curate" />
+      <Button title="Profile" />
     </View>
   );
 };
 
 const styles = StyleSheet.create({});
 
-export default Explore;
+export default Nav;

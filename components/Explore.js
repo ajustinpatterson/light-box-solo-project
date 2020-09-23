@@ -1,11 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Nav from './components/Nav';
+import Nav from './Nav';
 
 const Explore = () => {
   return (
     <View>
-      <Text>Explore photos: 🏞<🌉🌆</Text>
+      <Text>Explore photos</Text>
+      <Nav />
     </View>
   );
 };

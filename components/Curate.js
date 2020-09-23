@@ -2,10 +2,10 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Nav from './Nav';
 
-const Explore = () => {
+const Curate = () => {
   return (
     <View>
-      <Text>Curated gallery🏞<🌉🌆</Text>
+      <Text>Curated gallery</Text>
       <Nav />
     </View>
   );
@@ -13,4 +13,4 @@ const Explore = () => {
 
 const styles = StyleSheet.create({});
 
-export default Explore;
+export default Curate;
