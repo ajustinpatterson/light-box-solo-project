@@ -4,7 +4,12 @@ import { View, Text, StyleSheet } from 'react-native';
 const Explore = () => {
   return (
     <View>
-      <Text>I have also birthed!</Text>
+      <Text>Login here</Text>
+      <form>
+        <input type="text" placeholder="username" />
+        <input type="text" placeholder="password" />
+        <button>Login</button>]
+      </form>
     </View>
   );
 };

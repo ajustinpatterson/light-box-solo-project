@@ -8,12 +8,13 @@ const App = () => {
       <View style={[styles.gray, styles.container]}>
         <Text style={{ color: 'lightgray' }}>I have birthed!</Text>
       </View>
-      <Explore />
+      <List />
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  text: {},
   gray: { backgroundColor: 'lightgray' },
   container: {
     backgroundColor: 'black',

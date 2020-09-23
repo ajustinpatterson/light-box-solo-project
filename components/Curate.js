@@ -1,10 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import Nav from './Nav';
 
 const Explore = () => {
   return (
     <View>
-      <Text>I have also birthed!</Text>
+      <Text>Curated gallery🏞<🌉🌆</Text>
+      <Nav />
     </View>
   );
 };
