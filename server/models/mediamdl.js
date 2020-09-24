@@ -1,7 +1,7 @@
-const { DataTypes } = require('sequelize/types');
+const { sequelize, DataTypes } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  sequelize.define('Image', {
+  const Image = sequelize.define('Image', {
     url: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -18,8 +18,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BLOB('long'),
     },
   });
-
-  Image.sync();
 
   return Image;
 };
