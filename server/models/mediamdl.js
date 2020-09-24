@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize/types');
 
-module.exports = (sequelize, DataTypes) =>
+module.exports = (sequelize, DataTypes) => {
   sequelize.define('Image', {
     url: {
       type: DataTypes.STRING,
@@ -14,8 +14,12 @@ module.exports = (sequelize, DataTypes) =>
       type: DataTypes.STRING,
       allowNull: false,
     },
-    file: {
-      type: DataTypes.STRING.BINARY,
-      allowNull: false,
+    data: {
+      type: DataTypes.BLOB('long'),
     },
   });
+
+  Image.sync();
+
+  return Image;
+};
