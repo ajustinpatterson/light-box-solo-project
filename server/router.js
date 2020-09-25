@@ -7,7 +7,7 @@ const uploadFile = require('./middlewares/upload');
 
 router.get('/users', userctrl.getAllUsers);
 
-router.get('/create', userctrl.register);
+router.post('/create', userctrl.register);
 
 router.post('/login', userctrl.login);
 

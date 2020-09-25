@@ -1,5 +1,4 @@
 const db = require('../models/index');
-const { use } = require('../router');
 
 exports.getAllUsers = async (req, res) => {
   try {
@@ -13,6 +12,7 @@ exports.getAllUsers = async (req, res) => {
 
 exports.login = async (req, res) => {
   try {
+    console.log(req.body);
     const user = await db.Users.findOne({
       where: { username: req.body.username },
     });
@@ -32,16 +32,24 @@ exports.login = async (req, res) => {
 
 exports.register = async (req, res) => {
   try {
-    const user = await User.create({
-      username: req.body.username,
-      name: req.body.name,
-      email: req.body.email,
-      pumpkins: req.body.pumpkins,
-      website: req.body.website,
-      bio: req.body.bio,
+    console.log(req.body);
+    const user = await db.Users.findOne({
+      where: { username: req.body.username },
     });
+    user
+      ? res.redirect('/login')
+      : (user = await User.create({
+          username: req.body.username,
+          name: req.body.name,
+          email: req.body.email,
+          pumpkins: req.body.pumpkins,
+          website: req.body.website,
+          bio: req.body.bio,
+        }));
+    console.log(user);
     res.status(200).send('Welcome in!');
   } catch (err) {
+    console.log(req.body);
     res.status(500).send('Something went wrong!');
   }
 };
