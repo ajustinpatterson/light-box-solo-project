@@ -7,19 +7,19 @@ const uploadFile = require('./middlewares/upload');
 
 router.get('/users', userctrl.getAllUsers);
 
-// router.get('/create', () => {}); 3
+router.get('/create', userctrl.register);
 
-router.get('/login', userctrl.login);
+router.post('/login', userctrl.login);
 
-// router.get('/feed', () => {});
+// router.get('/feed', () => {}); 5
 
-// router.get('/profile', () => {}); 2
+// router.get('/profile', () => {}); 4
 
-// router.get('/explore', () => {});
+// router.get('/explore', () => {}); 8
 
-router.post('/comment');
+// router.post('/comment'); 7
 
-router.post('/like');
+// router.post('/like'); 6
 
 //implement later
 //router.get('/collections', () => {});

@@ -29,3 +29,21 @@ exports.login = async (req, res) => {
     res.status(500).send(err);
   }
 };
+
+exports.register = async (req, res) => {
+  try {
+    const user = await User.create({
+      username: req.body.username,
+      name: req.body.name,
+      email: req.body.email,
+      pumpkins: req.body.pumpkins,
+      website: req.body.website,
+      bio: req.body.bio,
+    });
+    res.status(200).send('Welcome in!');
+  } catch (err) {
+    res.status(500).send('Something went wrong!');
+  }
+};
+
+exports.profile = async (req, res) => {};
