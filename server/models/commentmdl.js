@@ -1,27 +1,24 @@
 module.exports = (sequelize, DataTypes) => {
-  const Image = sequelize.define('Image', {
+  const Comment = sequelize.define('Image', {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       allowNull: false,
       primaryKey: true,
     },
-    url: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     author: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    location: {
+    text: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    data: {
-      type: DataTypes.BLOB('long'),
+    time: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
   });
 
-  return Image;
+  return Comment;
 };
