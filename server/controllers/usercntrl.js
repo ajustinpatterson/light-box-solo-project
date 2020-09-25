@@ -32,21 +32,26 @@ exports.login = async (req, res) => {
 
 exports.register = async (req, res) => {
   try {
-    const user = await db.Users.findOne({
-      where: { username: req.body.username },
+    const { username, email, password } = req.body;
+
+    if (!email || !password)
+      res.status(422).send('Email and password are required.');
+    const user = await db.User.findOne({
+      where: { username: username },
     });
-    user
-      ? res.redirect('/login')
-      : (user = await User.create({
-          username: req.body.username,
-          name: req.body.name,
-          email: req.body.email,
-          pumpkins: req.body.pumpkins,
-          website: req.body.website,
-          bio: req.body.bio,
-        }));
-    console.log(user);
-    res.status(200).send('Welcome in!');
+    //TODO: edge case for existing user
+    if (!user) {
+      User.create({
+        username: req.body.username,
+        name: req.body.name,
+        email: req.body.email,
+        pumpkins: req.body.pumpkins,
+        website: req.body.website,
+        bio: req.body.bio,
+      });
+      res.status(200);
+      res.send('Welcome in!');
+    }
   } catch (err) {
     console.log(req.body);
     res.status(500).send('Something went wrong!');
