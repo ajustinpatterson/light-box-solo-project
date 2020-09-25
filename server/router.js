@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 const mediaUpload = require('./controllers/mediauploadctrl');
 const userctrl = require('./controllers/usercntrl');
+const mediactrl = require('./controllers/mediacntrl');
 
 const uploadFile = require('./middlewares/upload');
 

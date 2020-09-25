@@ -13,18 +13,18 @@ exports.getAllUsers = async (req, res) => {
 exports.login = async (req, res) => {
   try {
     console.log(req.body);
-    const user = await db.Users.findOne({
+    const user = await db.User.findOne({
       where: { username: req.body.username },
     });
     console.log(user);
-    user
-      ? res.status(200).send({
-          id: user.id,
-          username: user.username,
-          email: user.email,
-          pumpkins: user.pumpkins,
-        })
-      : res.status(404).send('User not found.');
+    if (user) {
+      res.body = user;
+      res.status(200);
+      res.send(user);
+    } else {
+      res.status(404);
+      res.send('User not found.');
+    }
   } catch (err) {
     res.status(500).send(err);
   }
@@ -32,7 +32,6 @@ exports.login = async (req, res) => {
 
 exports.register = async (req, res) => {
   try {
-    console.log(req.body);
     const user = await db.Users.findOne({
       where: { username: req.body.username },
     });
