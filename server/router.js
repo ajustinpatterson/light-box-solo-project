@@ -12,7 +12,7 @@ router.post('/create', userctrl.register);
 
 router.post('/login', userctrl.login);
 
-// router.get('/feed', () => {}); 5
+router.get('/feed', () => {});
 
 // router.get('/profile', () => {}); 4
 
@@ -24,6 +24,8 @@ router.post('/login', userctrl.login);
 
 //implement later
 //router.get('/collections', () => {});
+
+router.post('/uploadtodb', mediactrl.uploadToDb);
 
 router.post('/upload', uploadFile.single('file'), mediaUpload.uploadFiles);
 

@@ -36,11 +36,11 @@ exports.register = async (req, res) => {
 
     if (!email || !pumpkins)
       res.status(422).send('Email and password are required.');
-    const user = await db.User.findOne({
+    const exists = await db.User.findOne({
       where: { username: username },
     });
     //TODO: edge case for existing user
-    if (!user) {
+    if (!exists) {
       const user = await db.User.create(req.body);
       res.body = user;
       res.status(200);
