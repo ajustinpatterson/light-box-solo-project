@@ -5,8 +5,10 @@ import ImageService from '../services/ImageService';
 const UserGallery = () => {
   const [images, setImages] = useState([]);
 
+  const getAllImages = ImageService.getAllImages;
+
   useEffect(() => {
-    ImageService.getAllImages();
+    getAllImages();
   }, []);
   return <View></View>;
 };

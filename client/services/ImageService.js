@@ -1,10 +1,13 @@
 const mainUrl = 'https://localhost:3000';
 export default {
-  getAllImages: () => {
-    console.log('inside getimages');
-    fetch(`${mainUrl}/gallery`)
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.log('error handler inside try', err));
+  getAllImages: async () => {
+    try {
+      console.log('inside getimages');
+      const images = await fetch(`${mainUrl}/gallery`);
+      response.json(images);
+      console.log(images);
+    } catch (err) {
+      console.log('error handler inside try', err);
+    }
   },
 };
