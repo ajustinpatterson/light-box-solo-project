@@ -1,6 +1,7 @@
 module.exports = {
   HOST: 'localhost',
   USER: 'postgres',
+  PASSWORD: 'cookies',
   DB: 'light_box',
   dialect: 'postgres',
   pool: {
