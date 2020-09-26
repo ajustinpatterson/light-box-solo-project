@@ -1,6 +1,6 @@
 const mainUrl = 'https://localhost:3000';
 export default {
-  getAllImages: async () => {
+  getAllImages: () => {
     console.log('inside getimages');
     fetch(`${mainUrl}/gallery`)
       .then((response) => response.json())
