@@ -32,25 +32,19 @@ exports.login = async (req, res) => {
 
 exports.register = async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const { username, email, pumpkins } = await req.body;
 
-    if (!email || !password)
+    if (!email || !pumpkins)
       res.status(422).send('Email and password are required.');
     const user = await db.User.findOne({
       where: { username: username },
     });
     //TODO: edge case for existing user
     if (!user) {
-      User.create({
-        username: req.body.username,
-        name: req.body.name,
-        email: req.body.email,
-        pumpkins: req.body.pumpkins,
-        website: req.body.website,
-        bio: req.body.bio,
-      });
+      const user = await db.User.create(req.body);
+      res.body = user;
       res.status(200);
-      res.send('Welcome in!');
+      res.send(user);
     }
   } catch (err) {
     console.log(req.body);
