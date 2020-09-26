@@ -1,5 +1,6 @@
 const db = require('../models/index');
 
+//TODO: update to get user-specific feed
 exports.getUserFeed = async (req, res) => {
   try {
     const images = await db.Image.findAll();
@@ -31,3 +32,48 @@ exports.uploadToDb = async (req, res) => {
     res.status(500).send('Something went wrong!');
   }
 };
+
+exports.func = async (req, res) => {
+  try {
+    const imageId = await req.params.id;
+    const image = await db.Image.findOne({
+      where: { id: imageId },
+    });
+
+    if (!image) {
+      res.status(422).send("This photo doesn't exist");
+      res.status(200).send(image);
+    }
+  } catch (err) {
+    console.log(req.body, err);
+    res.status(500).send('Something went wrong!');
+  }
+};
+
+// exports.func= async (req, res) => {
+// try {} catch (err){    console.log(req.body, err);
+// };
+
+// exports.func= async (req, res) => {
+// try {} catch (err){}
+// };
+
+// exports.func= async (req, res) => {
+// try {} catch (err){}
+// };
+
+// exports.func= async (req, res) => {
+// try {} catch (err){}
+// };
+
+// exports.func= async (req, res) => {
+// try {} catch (err){}
+// };
+
+// exports.func= async (req, res) => {
+// try {} catch (err){}
+// };
+
+// exports.func= async (req, res) => {
+// try {} catch (err){}
+// };
