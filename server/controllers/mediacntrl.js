@@ -6,7 +6,7 @@ const usermdl = require('../models/usermdl');
 exports.getUserFeed = async (req, res) => {
   try {
     const images = await db.Image.findAll();
-    res.status(200).send(images);
+    res.status(200).json(images);
   } catch (err) {
     console.log(err);
     return res.status(422).send({ error: 'No photos' });
