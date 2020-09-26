@@ -1,12 +1,22 @@
 const express = require('express');
 const fs = require('fs');
-const http = require('http');
 
 const router = require('./router');
 const config = require('./config');
 const db = require('./models/index');
+const { createServer } = require('https');
 
 const app = express();
+
+const key = fs.readFileSync(__dirname + '/selfsigned.key');
+const cert = fs.readFileSync(__dirname + '/selfsigned.crt');
+
+const credentials = {
+  key: key,
+  cert: cert,
+};
+
+const httpsServer = createServer(credentials, app);
 
 app.use(express.json());
 app.use(router);
@@ -14,7 +24,7 @@ app.use(router);
 //Turn on when database is fully connected
 // db.sequelize.sync();
 
-app.listen(config.port, (err) => {
+httpsServer.listen(config.port, (err) => {
   if (err) {
     console.log('Rumble in the Bronx! ' + err);
   } else {

@@ -12,7 +12,7 @@ router.post('/create', userctrl.register);
 
 router.post('/login', userctrl.login);
 
-router.get('/feed', () => {});
+router.get('/gallery', mediactrl.getUserFeed);
 
 // router.get('/profile', () => {}); 4
 

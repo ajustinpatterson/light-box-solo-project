@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
-import Nav from './Nav';
+import UserGallery from './UserGallery';
 
 const Profile = () => {
   return (
@@ -10,7 +10,7 @@ const Profile = () => {
         source={require('https://www.snappycanvas.com/3200-thickbox_default/admiral-pet-painting-from-photograph.jpg')}
       />
       <Text>Informations!</Text>
-      <Nav />
+      <UserGallery />
     </View>
   );
 };
