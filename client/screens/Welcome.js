@@ -16,7 +16,7 @@ import Register from '../screens/Register';
 
 const image = {
   uri:
-    'https://images.unsplash.com/photo-1559406041-c7d2b2e98690?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+    'https://images.unsplash.com/photo-1549197669-65ad15308853?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
 };
 
 const Welcome = ({ navigation }) => {
@@ -40,6 +40,14 @@ const Welcome = ({ navigation }) => {
         >
           <Text style={styles.buttonText}>register</Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.appButton}
+          onPress={() => {
+            navigation.navigate('UserGallery');
+          }}
+        >
+          <Text style={styles.buttonText}>Feed</Text>
+        </TouchableOpacity>
       </ImageBackground>
     </View>
   );
@@ -60,8 +68,8 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   buttonText: {
-    fontSize: 24,
-    color: 'white',
+    fontSize: 30,
+    color: 'lightgray',
   },
 });
 export default Welcome;
