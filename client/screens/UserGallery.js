@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import {
+  View,
+  ScrollView,
+  Text,
+  StyleSheet,
+  FlatList,
+  VirtualizedList,
+} from 'react-native';
+import CustomImage from '../components/Image';
 import ImageService from '../services/ImageService';
 
 const UserGallery = () => {
@@ -8,12 +16,23 @@ const UserGallery = () => {
   const getAllImages = ImageService.getAllImages;
 
   useEffect(() => {
-    getAllImages();
-    console.log('getting images', getAllImages());
+    getAllImages().then((data) => setImages(data));
   }, []);
-  return <View></View>;
+  return (
+    <View>
+      <FlatList
+        data={images}
+        keyExtractor={(item) => `${item.id}`}
+        renderItem={({ item }) => <CustomImage image={item} />}
+      />
+    </View>
+  );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'black',
+  },
+});
 
 export default UserGallery;

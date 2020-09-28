@@ -1,28 +1,29 @@
-import { React } from 'react';
-import { View, Text, StyleSheet, Image, SafeAreaView } from 'react-native';
+import React from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  SafeAreaView,
+  ImageBackground,
+  Dimensions,
+} from 'react-native';
 
-const Image = () => {
-  useEffect(() => {
-    ImageService.getAllImages()
-      .then((response) => response.json())
-      .then((data) => {
-        setImages(data);
-      });
-  }, []);
+const CustomImage = ({ image }) => {
+  console.log('image prop', image.id);
   return (
-    <SafeAreaView>
-      <View className="el-title">{image.title}</View>
-      <View className="el-date">{post.published_at}</View>
-      <View className="el-votes">{post.score}</View>
-      <View>
-        <button>Vote Up</button>
-        <button>Vote Down</button>
-        <button onClick={deletePost(post._id)}>Delete</button>
-      </View>
-    </SafeAreaView>
+    <ImageBackground
+      source={{ uri: image.urls.regular }}
+      style={styles.image}
+    />
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  image: {
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height + 20,
+  },
+});
 
-export default Image;
+export default CustomImage;

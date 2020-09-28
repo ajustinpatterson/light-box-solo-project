@@ -1,5 +1,6 @@
 import * as ImagePicker from 'expo-image-picker';
 
+const mainUrl = 'http://192.168.0.17:3000';
 const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dul6b2ewq/upload';
 const uploadPreset = 'j5owlaeh';
 

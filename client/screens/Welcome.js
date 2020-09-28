@@ -13,6 +13,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import Login from '../screens/Login';
 import Register from '../screens/Register';
+import Upload from './Upload';
 
 const image = {
   uri:
@@ -46,7 +47,15 @@ const Welcome = ({ navigation }) => {
             navigation.navigate('UserGallery');
           }}
         >
-          <Text style={styles.buttonText}>Feed</Text>
+          <Text style={styles.buttonText}>feed</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.appButton}
+          onPress={() => {
+            navigation.navigate('Upload');
+          }}
+        >
+          <Text style={styles.buttonText}>upload</Text>
         </TouchableOpacity>
       </ImageBackground>
     </View>
