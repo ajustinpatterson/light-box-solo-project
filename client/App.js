@@ -1,17 +1,27 @@
 import React from 'react';
 import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
-import List from './components/List';
-import Welcome from './components/Welcome';
-import UserGallery from './components/UserGallery';
+import Register from './screens/Register';
+import Login from './screens/Login';
+import Welcome from './screens/Welcome';
+import UserGallery from './screens/UserGallery';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer, StackActions } from '@react-navigation/native';
 
-//if no user, create. if logged out, show login. else:
+const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <View>
-      <UserGallery />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Welcome" component={Welcome} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="UserGallery" component={UserGallery} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
+
+//if no user, create. if logged out, show login. else:
 
 export default App;

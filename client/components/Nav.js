@@ -1,18 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { StackActions } from '@react-navigation/native';
 
-const Nav = () => {
+const Nav = createStackNavigator();
+
+const NavStack = () => {
   return (
-    <View>
-      <Button title="Feed" />
-      <Button title="Explore" />
-      <Button title="Upload" />
-      <Button title="Curate" />
-      <Button title="Profile" />
-    </View>
+    <Nav.Navigator>
+      <Nav.Screen name="Login" component="Login" />
+      <Nav.Screen name="Register" component="Register" />
+    </Nav.Navigator>
   );
 };
-
-const styles = StyleSheet.create({});
-
-export default Nav;
