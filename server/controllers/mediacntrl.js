@@ -5,6 +5,7 @@ const usermdl = require('../models/usermdl');
 //TODO: update to get user-specific feed
 exports.getUserFeed = async (req, res) => {
   try {
+    console.log('inside getUserFeed');
     const images = await db.Image.findAll();
     res.status(200).json(images);
   } catch (err) {

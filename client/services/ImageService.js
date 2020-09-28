@@ -1,11 +1,11 @@
-const mainUrl = 'https://localhost:3000';
+const mainUrl = '192.168.0.17:3000';
 export default {
-  getAllImages: async () => {
+  getAllImages: () => {
     try {
       console.log('inside getimages');
-      const images = await fetch(`${mainUrl}/gallery`);
-      response.json(images);
-      console.log(images);
+      return fetch(`${mainUrl}/gallery`).then((response) => {
+        response.json();
+      });
     } catch (err) {
       console.log('error handler inside try', err);
     }

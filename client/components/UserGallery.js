@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
+import ImageService from '../services/ImageService';
 
 const UserGallery = () => {
   const [images, setImages] = useState([]);
 
+  const getAllImages = ImageService.getAllImages;
+
+  useEffect(() => {
+    getAllImages();
+    console.log('getting images', getAllImages());
+  }, []);
   return <View></View>;
 };
 
