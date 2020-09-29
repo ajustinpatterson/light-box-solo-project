@@ -6,14 +6,14 @@ import {
   FlatList,
   Dimensions,
 } from 'react-native';
-import CustomImage from '../components/Image';
+import UserImage from '../components/UserImage';
 import ImageService from '../services/ImageService';
 import * as ScreenOrientation from 'expo-screen-orientation';
 
 const UserGallery = ({ navigation }) => {
   const [images, setImages] = useState([]);
 
-  const getAllImages = ImageService.getAllImages;
+  const getAllImages = ImageService.getUserImages;
 
   async function changeScreenOrientation() {
     await ScreenOrientation.lockAsync(
@@ -23,15 +23,18 @@ const UserGallery = ({ navigation }) => {
 
   useEffect(() => {
     changeScreenOrientation();
-    getAllImages().then((data) => setImages(data));
+    getAllImages().then((data) => {
+      console.log(data);
+      setImages(data.resources);
+    });
   }, []);
   return (
     <View>
       <StatusBar hidden />
       <FlatList
         data={images}
-        keyExtractor={(item) => `${item.id}`}
-        renderItem={({ item }) => <CustomImage image={item} />}
+        keyExtractor={(item) => `${item.asset_id}`}
+        renderItem={({ item }) => <UserImage image={item} />}
       />
     </View>
   );

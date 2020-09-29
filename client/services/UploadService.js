@@ -16,8 +16,6 @@ export default {
       return;
     }
 
-    setImage({ localUri: pickerResult.uri });
-
     let base64Img = `data:image/jpg;base64,${pickerResult.base64}`;
 
     let data = {

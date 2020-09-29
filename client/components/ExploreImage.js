@@ -8,7 +8,7 @@ import {
   ImageBackground,
 } from 'react-native';
 
-const CustomImage = ({ image }) => {
+const ExploreImage = ({ image }) => {
   console.log('image prop', image.id);
   return (
     <ImageBackground
@@ -25,4 +25,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CustomImage;
+export default ExploreImage;
