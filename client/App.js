@@ -1,10 +1,7 @@
 import React from 'react';
 import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
-import Upload from './screens/Upload';
-import Register from './screens/Register';
-import Login from './screens/Login';
+import Wrapper from './screens/Wrapper';
 import Welcome from './screens/Welcome';
-import UserGallery from './screens/UserGallery';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 
@@ -15,10 +12,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Welcome" component={Welcome} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen name="UserGallery" component={UserGallery} />
-        <Stack.Screen name="Upload" component={Upload} />
+        <Stack.Screen name="Wrapper" component={Wrapper} />
       </Stack.Navigator>
     </NavigationContainer>
   );

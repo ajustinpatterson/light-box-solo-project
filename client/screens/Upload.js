@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Button,
   View,
@@ -13,12 +13,12 @@ import {
 } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 
-export default function Upload(props) {
+export default function Upload({ navigation }) {
   const [image, setImage] = useState(null);
+  const imageExists = image ? image.url : null;
 
   useEffect(() => {
     (async () => {
-      console.log(image);
       if (Platform.OS !== 'web') {
         const {
           status,
@@ -28,6 +28,7 @@ export default function Upload(props) {
         }
       }
     })();
+    openImagePickerAsync();
   }, []);
 
   let CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dul6b2ewq/upload';
@@ -68,16 +69,7 @@ export default function Upload(props) {
       .catch((err) => console.log(err));
   };
 
-  return (
-    <View>
-      <Text> Look at our pretty picture! </Text>
-      <Image style={{ width: 150, height: 150 }} source={{ uri: image.url }} />
-      <Button
-        onPress={() => {
-          openImagePickerAsync();
-        }}
-        title="upload"
-      ></Button>
-    </View>
-  );
+  return <View></View>;
 }
+
+const styles = StyleSheet.create({});

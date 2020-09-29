@@ -1,12 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Nav from './Nav';
 
-const Curate = () => {
+const Curate = ({ navigation }) => {
   return (
     <View>
       <Text>Curated gallery</Text>
-      <Nav />
     </View>
   );
 };

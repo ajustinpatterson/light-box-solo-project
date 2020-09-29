@@ -1,12 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Nav from './Nav';
 
-const Explore = () => {
+const Explore = ({ navigation }) => {
   return (
     <View>
       <Text>Explore photos</Text>
-      <Nav />
     </View>
   );
 };

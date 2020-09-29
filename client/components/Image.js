@@ -6,7 +6,6 @@ import {
   Image,
   SafeAreaView,
   ImageBackground,
-  Dimensions,
 } from 'react-native';
 
 const CustomImage = ({ image }) => {
@@ -21,8 +20,8 @@ const CustomImage = ({ image }) => {
 
 const styles = StyleSheet.create({
   image: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height + 20,
+    aspectRatio: 1 * 1.7,
+    resizeMode: 'cover',
   },
 });
 

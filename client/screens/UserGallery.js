@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import {
   View,
-  ScrollView,
-  Text,
+  StatusBar,
   StyleSheet,
   FlatList,
-  VirtualizedList,
+  Dimensions,
 } from 'react-native';
 import CustomImage from '../components/Image';
 import ImageService from '../services/ImageService';
 import * as ScreenOrientation from 'expo-screen-orientation';
 
-const UserGallery = () => {
+const UserGallery = ({ navigation }) => {
   const [images, setImages] = useState([]);
 
   const getAllImages = ImageService.getAllImages;
 
   async function changeScreenOrientation() {
     await ScreenOrientation.lockAsync(
-      ScreenOrientation.SizeClassIOS.REGULAR,
-      ScreenOrientation.OrientationLock.PORTRAIT_UP,
+      ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT,
     );
   }
 
@@ -29,6 +27,7 @@ const UserGallery = () => {
   }, []);
   return (
     <View>
+      <StatusBar hidden />
       <FlatList
         data={images}
         keyExtractor={(item) => `${item.id}`}
@@ -40,7 +39,8 @@ const UserGallery = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'black',
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height + 20,
   },
 });
 

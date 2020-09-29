@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   ImageBackground,
   Text,
@@ -7,12 +7,24 @@ import {
   SafeAreaView,
   StyleSheet,
 } from 'react-native';
+import * as ScreenOrientation from 'expo-screen-orientation';
 
-const Welcome = ({}) => {
+async function changeScreenOrientation() {
+  await ScreenOrientation.lockAsync(
+    ScreenOrientation.OrientationLock.PORTRAIT_UP,
+  );
+}
+
+const Welcome = ({ navigation }) => {
   const bkgrndImage = {
     uri:
       'https://images.unsplash.com/photo-1567581807005-1a3609c32d95?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
   };
+
+  useEffect(() => {
+    changeScreenOrientation();
+  });
+
   return (
     <ImageBackground style={s.background} source={bkgrndImage}>
       <SafeAreaView style={s.safeArea}>
@@ -25,7 +37,10 @@ const Welcome = ({}) => {
           <View style={s.spacer} />
 
           <View style={s.controls}>
-            <TouchableOpacity style={s.button}>
+            <TouchableOpacity
+              style={s.button}
+              onPress={() => navigation.navigate('Wrapper')}
+            >
               <Text style={s.title}>Log in</Text>
             </TouchableOpacity>
           </View>
