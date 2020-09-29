@@ -1,5 +1,6 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
+  Button,
   View,
   Text,
   StyleSheet,
@@ -8,20 +9,31 @@ import {
   ImageBackground,
   Dimensions,
   TouchableOpacity,
+  Platform,
 } from 'react-native';
-import ImagePicker from 'expo-image-picker';
+import * as ImagePicker from 'expo-image-picker';
 
 export default function Upload(props) {
+  const [image, setImage] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      console.log(image);
+      if (Platform.OS !== 'web') {
+        const {
+          status,
+        } = await ImagePicker.requestCameraRollPermissionsAsync();
+        if (status !== 'granted') {
+          alert('Sorry, we need camera roll permissions to make this work!');
+        }
+      }
+    })();
+  }, []);
+
   let CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dul6b2ewq/upload';
   const uploadPreset = 'j5owlaeh';
 
   let openImagePickerAsync = async () => {
-    let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
-    if (permissionResult.granted === false) {
-      alert('Permission to access camera roll is required!');
-      return;
-    }
-
     let pickerResult = await ImagePicker.launchImageLibraryAsync({
       allowsEditing: true,
       aspect: [16, 9],
@@ -32,7 +44,7 @@ export default function Upload(props) {
       return;
     }
 
-    setSelectedImage({ localUri: pickerResult.uri });
+    setImage({ localUri: pickerResult.uri });
 
     let base64Img = `data:image/jpg;base64,${pickerResult.base64}`;
 
@@ -50,8 +62,8 @@ export default function Upload(props) {
     })
       .then(async (r) => {
         let data = await r.json();
-
-        setPhoto(data.url);
+        setImage(data);
+        console.log(image);
       })
       .catch((err) => console.log(err));
   };
@@ -59,29 +71,13 @@ export default function Upload(props) {
   return (
     <View>
       <Text> Look at our pretty picture! </Text>
-
-      <Image
-        source={{
-          uri:
-            'https://res.cloudinary.com/dul6b2ewq/image/upload/v1601127340/samples/ecommerce/leather-bag-gray.jpg',
-        }}
-        style={{ width: 150, height: 150 }}
-      />
-      <TouchableOpacity
+      <Image style={{ width: 150, height: 150 }} source={{ uri: image.url }} />
+      <Button
         onPress={() => {
           openImagePickerAsync();
         }}
-      >
-        <Text
-          style={{
-            flex: 1,
-            color: 'black',
-            alignItems: 'center',
-            fontSize: 30,
-            maxHeight: 30,
-          }}
-        />
-      </TouchableOpacity>
+        title="upload"
+      ></Button>
     </View>
   );
 }
