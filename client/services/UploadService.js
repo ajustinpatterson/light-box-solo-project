@@ -1,73 +1,36 @@
 import * as ImagePicker from 'expo-image-picker';
+import serviceConfig from './serviceConfig';
 
-const mainUrl = 'http://192.168.0.17:3000';
-const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dul6b2ewq/upload';
-const uploadPreset = 'j5owlaeh';
+let CLOUDINARY_URL = serviceConfig.cloudinaryUp;
+const uploadPreset = serviceConfig.cloudinaryPreset;
 
-exports.openImagePicker = async () => {
-  let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
+export default {
+  openImagePickerAsync: async () => {
+    let pickerResult = await ImagePicker.launchImageLibraryAsync({
+      allowsEditing: true,
+      aspect: [16, 9],
+      base64: true,
+    });
 
-  //this tells the application to give an alert if someone doesn't allow //permission.  It will return to the previous screen.
+    if (pickerResult.cancelled === true) {
+      return;
+    }
 
-  if (permissionResult.granted === false) {
-    alert('Permission to access camera roll is required!');
-    return;
-  }
+    setImage({ localUri: pickerResult.uri });
 
-  //This gets image from phone
+    let base64Img = `data:image/jpg;base64,${pickerResult.base64}`;
 
-  let pickerResult = await ImagePicker.launchImageLibraryAsync({
-    allowsEditing: true,
-    aspect: [4, 3],
+    let data = {
+      file: base64Img,
+      upload_preset: uploadPreset,
+    };
 
-    //We need the image to be base64 in order to be formatted for Cloudinary
-
-    base64: true,
-  });
-
-  //this just returns the user to the previous page if they click "cancel"
-
-  if (pickerResult.cancelled === true) {
-    return;
-  }
-
-  //sets image from imagePicker to SelectedImage.
-  //This is if you are using hooks. The hook for this I have set up as:
-  //[selectedImage, setSelectedImage] = useState("").  If you're using //anclass component you can use setState here.  This file format will be
-  //a file path to where the image is saved.
-
-  setSelectedImage({ localUri: pickerResult.uri });
-
-  //***IMPORTANT*** This step is necessary.  It converts image from //file path format that imagePicker creates, into a form that cloudinary //requires.
-
-  let base64Img = `data:image/jpg;base64,${pickerResult.base64}`;
-
-  // Here we need to include your Cloudinary upload preset with can be //found in your Cloudinary dashboard.
-
-  let data = {
-    file: base64Img,
-    upload_preset: uploadPreset,
-  };
-
-  //sends photo to cloudinary
-  //**I initially tried using an axios request but it did NOT work** I was
-  //not able to get this to work until I changed it to a fetch request.
-
-  fetch(CLOUDINARY_URL, {
-    body: JSON.stringify(data),
-    headers: {
-      'content-type': 'application/json',
-    },
-    method: 'POST',
-  });
+    fetch(CLOUDINARY_URL, {
+      body: JSON.stringify(data),
+      headers: {
+        'content-type': 'application/json',
+      },
+      method: 'POST',
+    }).catch((err) => console.log(err));
+  },
 };
-
-//TODO: move to upload component
-// .then(async (r) => {
-//   let data = await r.json();
-
-//   //Here I'm using another hook to set State for the photo that we get back //from Cloudinary
-
-//   setPhoto(data.url);
-// })
-// .catch((err) => console.log(err));

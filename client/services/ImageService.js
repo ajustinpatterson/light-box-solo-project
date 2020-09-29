@@ -1,6 +1,7 @@
-const mainUrl = 'http://192.168.0.17:3000';
-const apiUrl =
-  'https://api.unsplash.com/photos/?client_id=rqvlp8dmdA61y6UyNy0YhAfNLMfLuKrAdBiKMcLqweI';
+import serviceConfig from './serviceConfig';
+
+const mainUrl = serviceConfig.mainUrl;
+const apiUrl = serviceConfig.unsplash;
 
 export default {
   getAllImages: () => {
