@@ -33,7 +33,7 @@ export default function Upload(props) {
   let CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dul6b2ewq/upload';
   const uploadPreset = 'j5owlaeh';
 
-  let openImagePickerAsync = async () => {
+  const openImagePickerAsync = async () => {
     let pickerResult = await ImagePicker.launchImageLibraryAsync({
       allowsEditing: true,
       aspect: [16, 9],

@@ -9,13 +9,22 @@ import {
 } from 'react-native';
 import CustomImage from '../components/Image';
 import ImageService from '../services/ImageService';
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 const UserGallery = () => {
   const [images, setImages] = useState([]);
 
   const getAllImages = ImageService.getAllImages;
 
+  async function changeScreenOrientation() {
+    await ScreenOrientation.lockAsync(
+      ScreenOrientation.SizeClassIOS.REGULAR,
+      ScreenOrientation.OrientationLock.PORTRAIT_UP,
+    );
+  }
+
   useEffect(() => {
+    changeScreenOrientation();
     getAllImages().then((data) => setImages(data));
   }, []);
   return (
