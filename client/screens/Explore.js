@@ -6,6 +6,7 @@ import {
   FlatList,
   Dimensions,
 } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
 import ExploreImage from '../components/ExploreImage';
 import ImageService from '../services/ImageService';
 import * as ScreenOrientation from 'expo-screen-orientation';
@@ -21,10 +22,12 @@ const Explore = ({ navigation }) => {
     );
   }
 
-  useEffect(() => {
-    changeScreenOrientation();
-    getAllImages().then((data) => setImages(data));
-  }, []);
+  useFocusEffect(
+    React.useCallback(() => {
+      changeScreenOrientation();
+      getAllImages().then((data) => setImages(data));
+    }, []),
+  );
   return (
     <View>
       <StatusBar hidden />

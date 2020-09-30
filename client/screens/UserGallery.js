@@ -6,12 +6,14 @@ import {
   FlatList,
   Dimensions,
 } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
 import UserImage from '../components/UserImage';
 import ImageService from '../services/ImageService';
 import * as ScreenOrientation from 'expo-screen-orientation';
 
 const UserGallery = ({ navigation }) => {
   const [images, setImages] = useState([]);
+  const [, forceUpdate] = React.useState();
 
   const getAllImages = ImageService.getUserImages;
 
@@ -21,13 +23,16 @@ const UserGallery = ({ navigation }) => {
     );
   }
 
-  useEffect(() => {
-    changeScreenOrientation();
-    getAllImages().then((data) => {
-      console.log(data);
-      setImages(data.resources);
-    });
-  }, []);
+  useFocusEffect(
+    React.useCallback(() => {
+      forceUpdate((s) => !s);
+      console.log(images.length);
+      changeScreenOrientation();
+      getAllImages().then((data) => {
+        setImages(data.resources);
+      });
+    }, []),
+  );
   return (
     <View>
       <StatusBar hidden />

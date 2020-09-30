@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import {
   ImageBackground,
+  Image,
   Text,
   View,
   TouchableOpacity,
@@ -30,8 +31,15 @@ const Welcome = ({ navigation }) => {
       <SafeAreaView style={s.safeArea}>
         <View style={s.wrapper}>
           <View style={s.header}>
-            <Text style={s.bigTitle}>Explore</Text>
-            <Text style={s.subTitle}>new photo communities</Text>
+            <Image
+              source={require('../assets/camera.png')}
+              style={{
+                padding: 30,
+                width: '20%',
+                height: '20%',
+              }}
+            />
+            <Text style={s.bigTitle}>light_box</Text>
           </View>
 
           <View style={s.spacer} />
@@ -41,7 +49,7 @@ const Welcome = ({ navigation }) => {
               style={s.button}
               onPress={() => navigation.navigate('Wrapper')}
             >
-              <Text style={s.title}>Log in</Text>
+              <Text style={s.title}>log in</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -64,12 +72,14 @@ const s = StyleSheet.create({
     padding: 25,
   },
   header: {
-    paddingTop: 70,
+    paddingTop: 150,
+    alignItems: 'center',
+    flexDirection: 'row',
   },
   title: {
     fontSize: 24,
-    fontFamily: 'Cochin-Bold',
-    color: 'white',
+    fontFamily: 'Avenir-Heavy',
+    color: 'lightgray',
   },
   subTitle: {
     fontSize: 20,
@@ -77,12 +87,13 @@ const s = StyleSheet.create({
     color: 'lightgray',
   },
   bigTitle: {
-    fontSize: 30,
-    fontFamily: 'Cochin',
+    textAlign: 'center',
+    fontSize: 60,
+    fontFamily: 'Avenir-Light',
     color: 'white',
   },
   spacer: {
-    height: 470,
+    height: 400,
   },
   controls: {
     flexDirection: 'row',

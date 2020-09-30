@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 
 const UserImage = ({ image }) => {
-  console.log('image prop', image.url);
   return <ImageBackground source={{ uri: image.url }} style={styles.image} />;
 };
 

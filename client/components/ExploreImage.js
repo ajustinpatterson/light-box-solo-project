@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 
 const ExploreImage = ({ image }) => {
-  console.log('image prop', image.id);
   return (
     <ImageBackground
       source={{ uri: image.urls.regular }}
