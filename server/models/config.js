@@ -1,4 +1,5 @@
 module.exports = {
+  dialect: 'postgres',
   pool: {
     max: 5,
     min: 0,
