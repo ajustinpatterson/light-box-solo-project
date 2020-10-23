@@ -1,9 +1,7 @@
 export default {
-  main: 'http://192.168.0.17:3000',
-  cloudinaryUp: 'https://api.cloudinary.com/v1_1/dul6b2ewq/upload',
-  cloudinaryPreset: 'j5owlaeh',
-  cloudinaryDown:
-    'https://219685333578295:ab5xv70wnt9PO8NjmNliwY6Gso4@api.cloudinary.com/v1_1/dul6b2ewq/resources/image/upload',
-  unsplash:
-    'https://api.unsplash.com/photos/?client_id=rqvlp8dmdA61y6UyNy0YhAfNLMfLuKrAdBiKMcLqweI',
+  main: process.env.LOCAL_URL,
+  cloudinaryUp: process.env.CLOUDINARY_UP,
+  cloudinaryDown: process.env.CLOUDINARY_DOWN,
+  cloudinaryPreset: process.env.CLOUDINARY_PRESET,
+  unsplash: process.env.UNSPLASH_API,
 };
