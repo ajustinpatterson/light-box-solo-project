@@ -18,8 +18,7 @@ async function changeScreenOrientation() {
 
 const Welcome = ({ navigation }) => {
   const bkgrndImage = {
-    uri:
-      'https://images.unsplash.com/photo-1567581807005-1a3609c32d95?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+    uri: process.env.WELCOME_BG,
   };
 
   useEffect(() => {
