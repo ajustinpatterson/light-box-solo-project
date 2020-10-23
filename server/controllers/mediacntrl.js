@@ -1,6 +1,5 @@
 const { sequelize } = require('../models/index');
 const db = require('../models/index');
-const usermdl = require('../models/usermdl');
 
 //TODO: update to get user-specific feed
 exports.getUserFeed = async (req, res) => {
