@@ -1,6 +1,5 @@
 [![forthebadge](https://forthebadge.com/images/badges/compatibility-betamax.svg)](https://forthebadge.com) 
 ![logo](https://github.com/ajustinpatterson/light-box-solo-project/blob/master/client/assets/light_box.png)
-Light Box Photo Network
 
 Light Box Photo Network
 Light Box is a mobile photo-sharing app that puts photos back in the center of the sharing experience! The app is a portal for people looking for a photography-centric online community.  Users can upload photos in the 16x9 format and enjoy full-screen presentation, as well as adding likes and comments to their favorites. The 16x9 format offers three main benefits:
