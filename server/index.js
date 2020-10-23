@@ -1,4 +1,6 @@
 const express = require('express');
+const dotenv = require('dotenv');
+dotenv.config();
 const fs = require('fs');
 const http = require('http');
 
@@ -14,7 +16,7 @@ app.use(router);
 //Turn on when database is fully connected
 // db.sequelize.sync();
 
-app.listen(config.port, (err) => {
+app.listen(process.env.PORT, (err) => {
   if (err) {
     console.log('Rumble in the Bronx! ' + err);
   } else {
