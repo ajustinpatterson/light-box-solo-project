@@ -1,5 +1,4 @@
 import React from 'react';
-import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
 import Wrapper from './screens/Wrapper';
 import Welcome from './screens/Welcome';
 import { createStackNavigator } from '@react-navigation/stack';
