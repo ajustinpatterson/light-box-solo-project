@@ -1,6 +1,5 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { StackActions } from '@react-navigation/native';
 
 const Nav = createStackNavigator();
 
