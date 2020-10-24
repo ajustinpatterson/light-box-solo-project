@@ -42,5 +42,12 @@ Node/express
 PostgreSQL  
 Sequelize  
 
-## Developer:
-Justin Patterson
+## Team:
+### Founder:
+[Justin Patterson](https://github.com/ajustinpatterson)
+
+### Lead Back-end Developer
+[Andrea Disperati](https://github.com/Andrea-Dispe)
+
+### Lead Front-end Developer
+[Filippo Vecchiato](https://github.com/filvecchiato)
