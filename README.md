@@ -1,19 +1,18 @@
-[![forthebadge](https://forthebadge.com/images/badges/compatibility-betamax.svg)](https://forthebadge.com) 
-![logo](https://github.com/ajustinpatterson/light-box-solo-project/blob/master/client/assets/light_box.png)
-
-Light Box Photo Network
+# Light Box Photo Network
+  <img width="460" height="300" src="./client/assets/light_box.png">
+</p>
 Light Box is a mobile photo-sharing app that puts photos back in the center of the sharing experience! The app is a portal for people looking for a photography-centric online community.  Users can upload photos in the 16x9 format and enjoy full-screen presentation, as well as adding likes and comments to their favorites. The 16x9 format offers three main benefits:
 1. It offers an easy full-screen experience on most mobile devices
 2. It makes for an interesting artistic challenge
 3. It encourages photographers to experiment with composition
 
-Getting started
+## Getting started
 Having a device simulator is handy.
 To use one, make sure you've got Xcode(latest version).
 You'll also need Expo XDE - the Expo dev environment. ```npm install -g expo-cli```
 And PostgreSQL(latest). ```brew install postgresql```
 
-Installation
+## Installation
 1. Clone this repo and enter.
 ```
 git clone https://github.com/ajustinpatterson/light-box-solo-project.git
@@ -32,7 +31,7 @@ npm i
 4. At the moment, the app requires a Cloudinary account for image hosting, so go to 
 https:///www.cloudinary.com to set one up!
 
-Tech Stack
+## Tech Stack
 Front end:
 React Native (with Expo)
 Cloudinary
@@ -41,5 +40,5 @@ Node/express
 PostgreSQL
 Sequelize
 
-Team:
+## Developer:
 Justin Patterson
