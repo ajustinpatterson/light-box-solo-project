@@ -1,5 +1,6 @@
 # Light Box Photo Network
-  <img align="center" src="./client/assets/light_box.png">
+<p align="center">
+  <img src="./client/assets/light_box.png" style="max-width:20%">
 </p>
 Light Box is a mobile photo-sharing app that puts photos back in the center of the sharing experience! The app is a portal for people looking for a photography-centric online community.  Users can upload photos in the 16x9 format and enjoy full-screen presentation, as well as adding likes and comments to their favorites. The 16x9 format offers three main benefits:
 1. It offers an easy full-screen experience on most mobile devices
